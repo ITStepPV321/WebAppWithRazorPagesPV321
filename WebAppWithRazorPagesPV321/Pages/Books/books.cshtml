@@ -1,22 +1,55 @@
 ﻿@page
-@model WebAppWithRazorPagesPV321.Pages.Books.booksModel
-@{//for variavles and expresions
+@model BooksModel
+@{
+	Layout = "_MyLayout";
+	//for variavles and expresions
+	ViewData["title"] = "Books";
 	var a = 45;
 	var b = 34;
+	int currentHour = DateTime.Now.Hour;
+	string[] arrBooks = { "Harry Potter", "Harry Potter2", "Harry Potter3" };
+
 	// tag
-	<p>@a + @b = @(a + b)</p>
+//	<p>@a + @b = @(a + b)</p>
 	// text
-	@: @a + @b = @(a + b)  
+	//@: @a + @b = @(a + b) 
 }
 @functions{
-	//for declarete functions
+	//for declarate functions and properties
 
 	public int suma(int n1, int n2) => n1 + n2;
 	public int suma2(int n1, int n2) { return n1 + n2; }
-}
-<h1>Books test</h1>
+	}
+
+<h2 class="text-end">@Model.UserName</h2>
+<h2 class="text-end">@Model.PrintShortDate()</h2>
+<h1 class="text-center">Books test</h1>
+<h4>@currentHour</h4>
 <p>@a + @b = @(a + b)</p>
 <p>@a + @b = @suma(a, b)</p>
 <p>23 + 67 = @suma(23, 67)</p>
 @* convert to text *@
  @a + @b = @(a + b)
+
+@if (currentHour < 12)
+{
+	@: Good Morning!
+}
+else if (currentHour < 18)
+{
+	<h3 >Good Day!</h3>
+}else if (currentHour < 22)
+{
+	<h3 class="myh3">Good Evening!</h3>
+}else {
+	<h3 >Good Bay!</h3>
+}
+
+<ol class="list-group w-50 text-center">
+@for (var i = 0; i < arrBooks.Length; i++)
+{
+		<li class="list-group-item list-group-item-success">@arrBooks[i]</li>
+
+}
+</ol>
+

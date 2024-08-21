@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+h3 {
+    color: green;
+}
+
+.myh3 {
+    color: red;
+}
