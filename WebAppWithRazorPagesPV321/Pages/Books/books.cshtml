@@ -1,0 +1,22 @@
+﻿@page
+@model WebAppWithRazorPagesPV321.Pages.Books.booksModel
+@{//for variavles and expresions
+	var a = 45;
+	var b = 34;
+	// tag
+	<p>@a + @b = @(a + b)</p>
+	// text
+	@: @a + @b = @(a + b)  
+}
+@functions{
+	//for declarete functions
+
+	public int suma(int n1, int n2) => n1 + n2;
+	public int suma2(int n1, int n2) { return n1 + n2; }
+}
+<h1>Books test</h1>
+<p>@a + @b = @(a + b)</p>
+<p>@a + @b = @suma(a, b)</p>
+<p>23 + 67 = @suma(23, 67)</p>
+@* convert to text *@
+ @a + @b = @(a + b)
